@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+  Listado de Demonios
+{% endblock titulo %}
+
+{% block body %}
+
+  {% if demonios %}
+      <div class="card">
+          <div class="card-header">
+              <strong class="card-title">Listado de Demonios</strong>
+          </div>
+          <div class="table-stats order-table ov-h">
+              <table class="table">
+                <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>Nombre</th>
+                      <th>Parte del Cuerpo</th>
+                      <th>Ubicacion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for demonio in demonios %}
+                      <tr>
+                          <td>{{ demonio.id }}</td>
+                          <td>{{ demonio.nombre }}</td>
+                          <td>{{ demonio.partecuerpo }}</td>
+                          <td>{{ demonio.ubicacion }}</td>
+                      </tr>
+                  {%  endfor %}
+                </tbody>
+              </table>
+          </div>
+      </div>
+      {% else %}
+        <h1>No existen Demonios registrados</h1>
+      {% endif %}
+
+{% endblock body %}

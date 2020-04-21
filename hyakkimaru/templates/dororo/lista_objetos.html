@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+  Listado de Pertenencias 
+{% endblock titulo %}
+
+{% block body %}
+
+  {% if objetos %}
+      <div class="card">
+          <div class="card-header">
+              <strong class="card-title">Listado de Pertenencias</strong>
+          </div>
+          <div class="table-stats order-table ov-h">
+              <table class="table">
+                <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>Nombre</th>
+                      <th>Procedencia</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for objeto in objetos %}
+                      <tr>
+                          <td>{{ objeto.id }}</td>
+                          <td>{{ objeto.nombre }}</td>
+                          <td>{{ objeto.procedencia }}</td>
+                      </tr>
+                  {%  endfor %}
+                </tbody>
+              </table>
+          </div>
+      </div>
+      {% else %}
+        <h1>No existen Pertenencias registradas</h1>
+      {% endif %}
+
+{% endblock body %}

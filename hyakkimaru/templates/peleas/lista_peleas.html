@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+  Listado de Peleas
+{% endblock titulo %}
+
+{% block body %}
+
+  {% if peleas %}
+      <div class="card">
+          <div class="card-header">
+              <strong class="card-title">Listado de Peleas</strong>
+          </div>
+          <div class="table-stats order-table ov-h">
+              <table class="table">
+                <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>Ganador</th>
+                      <th>Lugar</th>
+                      <th>Demonio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for pelea in peleas %}
+                      <tr>
+                          <td>{{ pelea.id }}</td>
+                          <td>{{ pelea.ganador }}</td>
+                          <td>{{ pelea.lugar }}</td>
+                          <td>{{ pelea.demonio }}</td>
+                      </tr>
+                  {%  endfor %}
+                </tbody>
+              </table>
+          </div>
+      </div>
+  {% else %}
+        <h1>No existen Peleas registradas</h1>
+  {% endif %}
+
+{% endblock body %}
